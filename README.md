@@ -3,6 +3,9 @@
 A front-end web app to build resumes.<br/>
 My React.js project. The goal was to learn more about React, Hooks, Context API, and router.
 
+[Live Demo]https://voluble-nasturtium-05f023.netlify.app/) - https://voluble-nasturtium-05f023.netlify.app/
+
+
 ![Image of Resumi](https://github.com/lucasmrl/resumi/blob/master/resumi-screenshot.png?raw=true)
 
 ## Built With
