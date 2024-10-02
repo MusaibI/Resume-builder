@@ -29,13 +29,15 @@ const data = {
       description: ["Desc 1", "Desc 2", "Desc 3", "Desc 4"],
     },
   ],
-  education: {
-    institution: "New Candles University",
-    city: "New Candles, TX, USA",
-    major: "Bachelors in Finance",
-    gradYear: "1987",
-    additional: "magna cum laude (GPA 3.95)",
-  },
+  education: [
+    {
+      institution: "New Candles University",
+      city: "New Candles, TX, USA",
+      major: "Bachelors in Finance",
+      gradYear: "1987",
+      additional: "magna cum laude (GPA 3.95)",
+    }
+  ],
   additional: [
     "5+ years of experience with Microsoft Office",
     "English and Spanish speaker",

@@ -6,16 +6,20 @@ import { useFieldArray, useForm } from "react-hook-form";
 import { ResumeContext } from "../../contexts/ResumeContext";
 
 function Education() {
-  const { content, updateEducationData, removeFakeData } = useContext(
+  const { content, updateEducationData, removeFakeData, control: theControl, contentFake } = useContext(
     ResumeContext
   );
   const [btnText, setBtnText] = useState("Add");
-
-  const { register,control, handleSubmit } = useForm();
+  let contentUse = theControl ? contentFake : content;
+  const { register, control, handleSubmit } = useForm({
+    defaultValues: {
+      education: contentUse.education || [], // default value
+    },
+  });
 
   const onSubmit = (data) => {
     removeFakeData();
-    updateEducationData(data);
+    updateEducationData(data.education);
     setBtnText("Update");
   };
 
@@ -43,7 +47,7 @@ function Education() {
               label="Institution"
               name={`education[${index}].institution`}
               variant="outlined"
-              defaultValue={content.education.institution}
+              defaultValue={item.institution}
               inputRef={register}
               // onChange={handleSubmit(onSubmit)}
               style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -54,7 +58,7 @@ function Education() {
               label="City, State, Country"
               name={`education[${index}].city`}
               variant="outlined"
-              defaultValue={content.education.city}
+              defaultValue={item.city}
               inputRef={register}
               // onChange={handleSubmit(onSubmit)}
               style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -65,7 +69,7 @@ function Education() {
               label="Major"
               name={`education[${index}].major`}
               variant="outlined"
-              defaultValue={content.education.major}
+              defaultValue={item.major}
               inputRef={register}
               // onChange={handleSubmit(onSubmit)}
               style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -76,7 +80,7 @@ function Education() {
               label="Graduation Year"
               name={`education[${index}].gradYear`}
               variant="outlined"
-              defaultValue={content.education.gradYear}
+              defaultValue={item.gradYear}
               inputRef={register}
               // onChange={handleSubmit(onSubmit)}
               style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -87,7 +91,7 @@ function Education() {
               label="Additional Info"
               name={`education[${index}].additional`}
               variant="outlined"
-              defaultValue={content.education.additional}
+              defaultValue={item.additional}
               inputRef={register}
               // onChange={handleSubmit(onSubmit)}
               style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
@@ -97,7 +101,10 @@ function Education() {
               variant="contained"
               color="secondary"
               type="button"
-              onClick={() => remove(index)} // Remove entire experience
+              onClick={() => {
+                remove(index)
+                updateEducationData([])
+              }} // Remove entire experience
               style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
             >
               Remove Education

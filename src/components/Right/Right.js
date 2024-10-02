@@ -37,7 +37,7 @@ function Right() {
     setContent({
       header: {},
       professional:[],
-      education: {},
+      education: [],
       additional: [],
     });
   };

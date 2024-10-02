@@ -102,16 +102,16 @@ function Left() {
             <Button
               className={classes.headerLink}
               component={Link}
-              to="/basic/professional"
+              to="/basic/education"
             >
-              Experience
+              Education
             </Button>
             <Button
               className={classes.headerLink}
               component={Link}
-              to="/basic/education"
+              to="/basic/professional"
             >
-              Education
+              Experience
             </Button>
             <Button
               className={classes.headerLink}

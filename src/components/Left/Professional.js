@@ -101,7 +101,10 @@ function Professional() {
               variant="contained"
               color="secondary"
               type="button"
-              onClick={() => remove(index)} // Remove entire experience
+              onClick={() => {
+                remove(index)
+                updateProfessionalData([]);
+              }} // Remove entire experience
               style={{ marginTop: 12, marginLeft: 8, marginRight: 8 }}
             >
               Remove Experience

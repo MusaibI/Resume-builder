@@ -9,7 +9,7 @@ const ResumeContextProvider = (props) => {
     JSON.parse(localStorage.getItem("dataLocal")) || {
       header: {},
       professional: [],
-      education: {},
+      education: [],
       additional: [],
     }
   );
@@ -51,7 +51,7 @@ const ResumeContextProvider = (props) => {
     setContentFake({
       header: {},
       professional: [],
-      education: {},
+      education: [],
       additional: [],
     });
   }

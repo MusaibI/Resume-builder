@@ -12,12 +12,12 @@ body {
 
 .left {
   background-color: #fff;
-  width: 25vw;
+  width: 28vw;
   box-shadow: 0 0 0.5cm #7b7d7d;
 }
 
 .right {
-  width: 75vw;
+  width: 72vw;
   min-height: 100vh;
   font-family: "Lora", serif;
 }

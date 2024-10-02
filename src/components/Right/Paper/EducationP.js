@@ -5,50 +5,35 @@ import { ResumeContext } from "../../../contexts/ResumeContext";
 function EducationP() {
   const { content, control, contentFake } = useContext(ResumeContext);
 
-  //If the "control" is TRUE - use "Fake State" to show the example on the page
-  let contentUse;
-  if (control) {
-    contentUse = contentFake;
-  } else {
-    contentUse = content;
-  }
+  const contentUse = control ? contentFake : content;
 
-  //If there is no data, the Title of the section will not be displayed
-  let title;
-  if (Object.keys(contentUse.education).length === 0) {
-    title = "";
-  } else {
-    title = (
-      <h3>
-        <strong>Education</strong>
-      </h3>
-    );
-  }
 
-  let bulletEducation;
-  if (!contentUse.education.additional) {
-    bulletEducation = "";
-  } else {
-    bulletEducation = (
-      <ul>
-        <li>{contentUse.education.additional}</li>
-      </ul>
-    );
-  }
+  const title = contentUse.education && contentUse.education.length > 0 ? (
+    <h3>
+      <strong>Education</strong>
+    </h3>
+  ) : (
+    ""
+  );
 
   return (
     <div className={classes.professionalResume}>
-      <div className="">
-        {title}
-        <p>
-          <strong>{contentUse.education.institution} </strong>{" "}
-          {contentUse.education.city}
-        </p>
-        <p>
-          {contentUse.education.major} {contentUse.education.gradYear}
-        </p>
-        {bulletEducation}
-      </div>
+      {title}
+      {contentUse?.education?.map((item, idx) => (
+        <div key={idx}>
+          <p>
+            <strong>{item.institution}</strong> {item.city}
+          </p>
+          <p>
+            {item.major} {item.gradYear}
+          </p>
+          {item.additional && (
+            <ul>
+              <li>{item.additional}</li>
+            </ul>
+          )}
+        </div>
+      ))}
     </div>
   );
 }

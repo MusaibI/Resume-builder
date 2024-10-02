@@ -27,6 +27,7 @@ img {
   padding: 15px;
   text-align: center;
   justify-content: space-evenly;
+  gap: 5px;
 }
 
 .headerLeft {
